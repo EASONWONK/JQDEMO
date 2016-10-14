@@ -57,6 +57,23 @@
 		<input type="button" value="获得选中的所有值" class="btn" id="getValue">
 	</div>
 	<script>
+		/*两个问题:
+		* 不能使用.attr(), http://www.css88.com/jqapi-1.9/prop/
+		*attributes和properties之间的差异在特定情况下是很重要。jQuery 1.6之前 ，
+		* .attr()方法在取某些 attribute 的值时，会返回 property 的值，这就导致了结果的不一致。
+		* 从 jQuery 1.6 开始， .prop()方法 方法返回 property 的值,而 .attr() 方法返回 attributes 的值。
+		*获取选中选项的值
+		     *$("#getValue").click(function () {
+		     *	var valArr = new Array;
+			 *	$("#list :checkbox:checked").each(function (i) {
+			 *		valArr[i] = $(this).val();
+			 *	});
+			 *	var vals = valArr.join(',');
+			 *	alert(vals);
+			*});
+		*$("#list :checkbox:checked") 使用:checked   css3 input
+		*
+		*/
 		$(function () {
 			//全选或全不选
 			$("#all").click(function () {
